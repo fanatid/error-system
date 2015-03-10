@@ -1,0 +1,11 @@
+language: node_js
+node_js:
+  - "0.10"
+  - "0.11"
+  - "0.12"
+  - "iojs"
+env:
+  - TEST_SUITE=build
+  - TEST_SUITE=coveralls
+  - TEST_SUITE=lint
+script: "npm run-script $TEST_SUITE"

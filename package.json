@@ -1,0 +1,54 @@
+{
+  "name": "error-system",
+  "version": "0.0.1",
+  "description": "Your custom errors in your JavaScript code.",
+  "author": "Fomichev Kirill <fanatid@ya.ru>",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:fanatid/error-system.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fanatid/error-system/issues"
+  },
+  "license": "MIT",
+  "keywords": [
+    "error",
+    "errors",
+    "custom"
+  ],
+  "files": [
+    "lib",
+    "LICENSE",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "npm run-script compile && npm run-script uglify",
+    "compile": "browserify lib/index.js -s ErrorSystem -o error-system.js",
+    "compile_test": "browserify test/*.js -o error-system.test.js",
+    "coverage": "istanbul cover _mocha -- test/*.js",
+    "coveralls": "npm run-script coverage && coveralls <coverage/lcov.info",
+    "clean": "rm -f error-system.js error-system.min.js error-system.test.js",
+    "lint": "standard",
+    "uglify": "uglify -s error-system.js -o error-system.min.js",
+    "test": "istanbul test mocha -- --reporter spec test/*.js"
+  },
+  "dependencies": {
+  },
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "chai": "^2.1.1",
+    "coveralls": "^2.11.2",
+    "istanbul": "^0.3.7",
+    "mocha": "^2.2.0",
+    "standard": "^2.10.0",
+    "uglify": "^0.1.1"
+  },
+  "standard": {
+    "ignore": [
+      "error-system.js",
+      "error-system.min.js",
+      "error-system.test.js"
+    ]
+  }
+}
