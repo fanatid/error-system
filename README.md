@@ -34,7 +34,7 @@ request(url, function (error, response) {
 ### extend
 ```js
 var errorSystem = require('error-system')
-var RequestError = errorSystem.extend(Error, {
+var RequestError = errorSystem.extend(Error, [{
   name: 'RequestError',
   message: 'Code: {0} (url: {1})',
   errors: [
@@ -43,7 +43,7 @@ var RequestError = errorSystem.extend(Error, {
       message: 'Code: 404 (url: {0})'
     }
   ]
-})
+}])
 var request = require('request')
 
 var url = 'https://github.com/notfound11'

@@ -34,6 +34,7 @@
     "test": "istanbul test mocha -- --reporter spec test/*.js"
   },
   "dependencies": {
+    "inherits": "^2.0.1"
   },
   "devDependencies": {
     "browserify": "^9.0.3",
