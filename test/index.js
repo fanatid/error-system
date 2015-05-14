@@ -75,9 +75,7 @@ describe('extend', function () {
 
       var Custom21 = createError('Custom21', '{0}', Error)
       var custom21 = new Custom21()
-      expect(custom21.stack.split('\n')[0]).to.equal('Error')
-      expect(custom21.stack.split('\n')[1]).to.match(/CustomError/)
-      expect(custom21.stack.split('\n')[2]).to.match(/Context\.<anonymous>/)
+      expect(custom21.stack).to.match(/CustomError/)
     })
 
     it('use captureStackTrace for stack', function () {

@@ -23,15 +23,18 @@
     "README.md"
   ],
   "scripts": {
-    "build": "npm run-script compile && npm run-script uglify",
-    "compile": "browserify lib/index.js -s ErrorSystem -o error-system.js",
-    "compile_test": "browserify test/*.js -o error-system.test.js",
+    "build": "npm run compile && npm run uglify",
+    "compile:test": "browserify -o error-system.test.js test/*.js",
+    "compile": "browserify ./lib/index.js -s ErrorSystem -o error-system.js",
+    "coveralls": "npm run coverage && coveralls <coverage/lcov.info",
     "coverage": "istanbul cover _mocha -- test/*.js",
-    "coveralls": "npm run-script coverage && coveralls <coverage/lcov.info",
     "clean": "rm -f error-system.js error-system.min.js error-system.test.js",
+    "karma": "./node_modules/karma/bin/karma start karma.conf.js",
     "lint": "standard",
-    "uglify": "uglify -s error-system.js -o error-system.min.js",
-    "test": "istanbul test mocha -- --reporter spec test/*.js"
+    "test": "npm run test:node && npm run test:browser",
+    "test:node": "istanbul test mocha -- --reporter spec test/*.js",
+    "test:browser": "npm run compile:test && npm run karma",
+    "uglify": "uglify -s error-system.js -o error-system.min.js"
   },
   "dependencies": {
     "inherits": "^2.0.1"
@@ -41,6 +44,11 @@
     "chai": "^2.1.1",
     "coveralls": "^2.11.2",
     "istanbul": "^0.3.7",
+    "karma": "^0.12.31",
+    "karma-chrome-launcher": "^0.1.12",
+    "karma-detect-browsers": "^2.0.0",
+    "karma-firefox-launcher": "^0.1.6",
+    "karma-mocha": "^0.1.10",
     "mocha": "^2.2.0",
     "standard": "^2.10.0",
     "uglify": "^0.1.1"

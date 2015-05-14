@@ -1,8 +1,12 @@
 # error-system
 
-[![Version](http://img.shields.io/npm/v/error-system.svg?style=flat-square)](https://www.npmjs.org/package/error-system)
 [![build status](https://img.shields.io/travis/fanatid/error-system.svg?branch=master&style=flat-square)](http://travis-ci.org/fanatid/error-system)
 [![Coverage Status](https://img.shields.io/coveralls/fanatid/error-system.svg?style=flat-square)](https://coveralls.io/r/fanatid/error-system)
+[![Dependency status](https://img.shields.io/david/fanatid/error-system.svg?style=flat-square)](https://david-dm.org/fanatid/error-system#info=dependencies)
+[![Dev Dependency status](https://img.shields.io/david/fanatid/error-system.svg?style=flat-square)](https://david-dm.org/fanatid/error-system#info=devDependencies)
+
+[![NPM](https://nodei.co/npm/error-system.png?downloads=true)](https://www.npmjs.com/package/error-system)
+[![js-standard-style](https://cdn.rawgit.com/feross/standard/master/badge.svg)](https://github.com/feross/standard)
 
 Your custom errors in your JavaScript code!
 
