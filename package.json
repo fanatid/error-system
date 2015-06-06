@@ -1,43 +1,43 @@
 {
   "name": "error-system",
   "version": "0.1.0",
-  "description": "Your custom errors in your JavaScript code.",
-  "author": "Fomichev Kirill <fanatid@ya.ru>",
-  "main": "lib/index.js",
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:fanatid/error-system.git"
-  },
-  "bugs": {
-    "url": "https://github.com/fanatid/error-system/issues"
-  },
-  "license": "MIT",
+  "description": "Your custom errors in your JavaScript code",
   "keywords": [
     "error",
     "errors",
     "custom"
   ],
+  "bugs": {
+    "url": "https://github.com/fanatid/error-system/issues"
+  },
+  "license": "MIT",
+  "author": "Fomichev Kirill <fanatid@ya.ru>",
   "files": [
     "lib",
     "LICENSE",
     "README.md"
   ],
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fanatid/error-system"
+  },
   "scripts": {
-    "build": "npm run compile && npm run uglify",
+    "compile": "browserify lib/index.js -s ErrorSystem -o error-system.js -g [ uglifyify --no-sourcemap ]",
+    "compile:debug": "browserify lib/index.js -s ErrorSystem -o error-system.js -d",
     "compile:test": "browserify -o error-system.test.js test/*.js",
-    "compile": "browserify ./lib/index.js -s ErrorSystem -o error-system.js",
-    "coveralls": "npm run coverage && coveralls <coverage/lcov.info",
     "coverage": "istanbul cover _mocha -- test/*.js",
-    "clean": "rm -f error-system.js error-system.min.js error-system.test.js",
+    "coveralls": "npm run coverage && coveralls <coverage/lcov.info",
+    "clean": "rm -f error-system.js error-system.test.js",
     "karma": "./node_modules/karma/bin/karma start karma.conf.js",
     "lint": "standard",
     "test": "npm run test:node && npm run test:browser",
     "test:node": "istanbul test mocha -- --reporter spec test/*.js",
-    "test:browser": "npm run compile:test && npm run karma",
-    "uglify": "uglify -s error-system.js -o error-system.min.js"
+    "test:browser": "npm run compile:test && npm run karma"
   },
   "dependencies": {
-    "inherits": "^2.0.1"
+    "inherits": "^2.0.1",
+    "string-template": "^0.2.1"
   },
   "devDependencies": {
     "browserify": "^9.0.3",
@@ -51,7 +51,7 @@
     "karma-mocha": "^0.1.10",
     "mocha": "^2.2.0",
     "standard": "^2.10.0",
-    "uglify": "^0.1.1"
+    "uglifyify": "^3.0.1"
   },
   "standard": {
     "ignore": [

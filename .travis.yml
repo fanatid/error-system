@@ -10,7 +10,7 @@ before_install:
 install:
   - npm install
 env:
-  - TEST_SUITE=build
+  - TEST_SUITE=compile
   - TEST_SUITE=coveralls
   - TEST_SUITE=lint
   - TEST_SUITE=test

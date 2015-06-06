@@ -1,26 +1,9 @@
 /* global describe, it */
 
 var expect = require('chai').expect
-var typeforce = require('../lib').typeforce
+var typeforce = require('../lib/typeforce')
 
 describe('typeforce', function () {
-  describe('getName', function () {
-    var objs = {
-      'Array': [],
-      'Function': function () {},
-      'Null': null,
-      'Object': {},
-      'String': '',
-      'Undefined': undefined
-    }
-
-    Object.keys(objs).forEach(function (key) {
-      it(key, function () {
-        expect(typeforce.getName(objs[key])).to.equal(key)
-      })
-    })
-  })
-
   describe('enforceErrorSpec', function () {
     function getFn () {
       var args = arguments
