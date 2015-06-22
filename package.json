@@ -1,6 +1,6 @@
 {
   "name": "error-system",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Your custom errors in your JavaScript code",
   "keywords": [
     "error",
@@ -11,7 +11,10 @@
     "url": "https://github.com/fanatid/error-system/issues"
   },
   "license": "MIT",
-  "author": "Fomichev Kirill <fanatid@ya.ru>",
+  "author": {
+    "name": "Kirill Fomichev",
+    "email": "fanatid@ya.ru"
+  },
   "files": [
     "lib",
     "LICENSE",
@@ -20,7 +23,7 @@
   "main": "lib/index.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fanatid/error-system"
+    "url": "https://github.com/fanatid/error-system.git"
   },
   "scripts": {
     "compile": "browserify lib/index.js -s ErrorSystem -o error-system.js -g [ uglifyify --no-sourcemap ]",
@@ -36,27 +39,25 @@
     "test:browser": "npm run compile:test && npm run karma"
   },
   "dependencies": {
-    "inherits": "^2.0.1",
-    "string-template": "^0.2.1"
+    "inherits": "^2.0.1"
   },
   "devDependencies": {
-    "browserify": "^9.0.3",
-    "chai": "^2.1.1",
+    "browserify": "^10.2.4",
+    "chai": "^2.3.0",
     "coveralls": "^2.11.2",
-    "istanbul": "^0.3.7",
-    "karma": "^0.12.31",
+    "istanbul": "^0.3.15",
+    "karma": "^0.12.36",
     "karma-chrome-launcher": "^0.1.12",
-    "karma-detect-browsers": "^2.0.0",
+    "karma-detect-browsers": "=2.0.0",
     "karma-firefox-launcher": "^0.1.6",
     "karma-mocha": "^0.1.10",
-    "mocha": "^2.2.0",
-    "standard": "^2.10.0",
+    "mocha": "^2.2.5",
+    "standard": "^4.3.1",
     "uglifyify": "^3.0.1"
   },
   "standard": {
     "ignore": [
       "error-system.js",
-      "error-system.min.js",
       "error-system.test.js"
     ]
   }

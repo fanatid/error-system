@@ -36,7 +36,7 @@ describe('extend', function () {
 
   it('spec.message a string', function () {
     extend(Error, {name: 'Custom3', message: 'arguments: {0},{1},{2}'})
-    testCustomError(Error, 'Custom3', ['a', 'b'], 'arguments: a,b,{2}')
+    testCustomError(Error, 'Custom3', ['a', 'b'], 'arguments: a,b,')
   })
 
   it('recursive extend via errors', function () {
@@ -85,7 +85,7 @@ describe('extend', function () {
 
       var Custom22 = createError('Custom22', '{0}', Error)
       var custom22 = new Custom22()
-      expect(custom22.stack.split('\n')[0]).to.equal('ErrorCustom22: {0}')
+      expect(custom22.stack.split('\n')[0]).to.equal('ErrorCustom22')
       expect(custom22.stack.split('\n')[1]).to.match(/Context\.<anonymous>/)
     })
   })
@@ -95,6 +95,11 @@ describe('createError', function () {
   it('with default parent (as Error)', function () {
     createError('Custom10', 'Custom10: {0}')
     testCustomError(Error, 'Custom10', ['h1'], 'Custom10: h1')
+  })
+
+  it('with named error', function () {
+    createError('Custom10', 'Custom10: Hi {name}!')
+    testCustomError(Error, 'Custom10', {name: 'Mark'}, 'Custom10: Hi Mark!')
   })
 
   it('with custom parent', function () {
