@@ -1,7 +1,6 @@
-/* global describe, it, afterEach */
-
 var expect = require('chai').expect
 var errorSystem = require('../lib')
+
 var extend = errorSystem.extend
 var createError = errorSystem.createError
 

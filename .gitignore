@@ -2,5 +2,4 @@ coverage
 node_modules
 
 error-system.js
-error-system.test.js
 npm-debug.log

@@ -1,6 +1,5 @@
-/* global describe, it */
-
 var expect = require('chai').expect
+
 var typeforce = require('../lib/typeforce')
 
 describe('typeforce', function () {

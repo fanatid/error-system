@@ -1,6 +1,5 @@
-/* global describe, it */
-
 var expect = require('chai').expect
+
 var util = require('../lib/util')
 
 describe('util', function () {

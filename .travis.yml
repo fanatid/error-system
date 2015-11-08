@@ -1,19 +1,24 @@
+sudo: false
 language: node_js
 node_js:
-  - "0.10"
-  - "0.11"
-  - "0.12"
-  - "iojs"
+  - 0.10
+  - 0.12
+  - 4
+  - 5
 addons:
-  firefox: "38.0"
-before_install:
-  - export DISPLAY=:99.0
+  firefox: latest
+before_script:
   - sh -e /etc/init.d/xvfb start
-install:
-  - npm install
 env:
-  - TEST_SUITE=compile
-  - TEST_SUITE=coveralls
-  - TEST_SUITE=lint
-  - TEST_SUITE=test
-script: "npm run-script $TEST_SUITE"
+  global:
+    - DISPLAY=:99.0
+  matrix:
+    - TEST_SUITE=compile
+    - TEST_SUITE=test
+matrix:
+  include:
+    - node_js: 4
+      env: TEST_SUITE=coveralls
+    - node_js: 4
+      env: TEST_SUITE=lint
+script: npm run-script $TEST_SUITE
